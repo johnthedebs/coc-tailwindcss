@@ -6880,10 +6880,10 @@ module.exports = (function(e, t) {
           let e = /@apply\s+[^;]*$/.test(o);
           if (e || !n) return e;
         }
-        let a = find(/\bclass(Name)?[= ](?:\[%tw )?(['"{])/g, o);
+        let a = find(/\b(class(?:Name)?|tw|(?:styled|tw)\.\w+|(?:styled|tw)\(\w+\))[= ]?(?:\[%tw )?([`'"{])/g, o);
         if (a.length > 0) {
           let e = a[a.length - 1];
-          let t = e.index + 7 + (e[1] ? e[1].length : 0);
+          let t = e.index + e[1].length + 2;
           if (e[2] === "{") {
             let e = 1;
             let r = true;
